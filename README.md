@@ -205,9 +205,9 @@ _Good luck and have fun!_
 
 ## SEEDS?
 
-- npx knex seeds:make initial
+- npx knex seeds:make ___
 
-  - 00_cleanup.js, etc
+  - 00_cleanup.js, 01_projects.js, 02_resources.js, 03_tasks.js, 04_projects_resources.js
 
 - npx knex seeds:run
 - npx knex seeds:rollback?
