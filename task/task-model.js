@@ -24,7 +24,7 @@ function findById(id) {
 // FROM tasks as t
 // JOIN projects as p
 // on t.project_id = p.id;
-  function find(){
+  function find(id){
     return db("tasks")
     .select("p.name", "p.description", "t.description")
     .join("projects", "t.project_id", "=", "p.id")
