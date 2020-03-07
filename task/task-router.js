@@ -7,7 +7,13 @@ const router = express.Router({
 })
 
 router.get("/", (req, res) => {
-
+    Task.find()
+    .then(task => {
+      res.json(task);
+    })
+    .catch(error => {
+      res.status(500).json({ message: "Failed to return Tasks. Good-bye." });
+    });
 })
 
 router.post("/", (req, res) => {
