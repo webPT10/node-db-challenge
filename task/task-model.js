@@ -18,6 +18,15 @@ function findById(id) {
       });
   }
 
+// retrieving a list of tasks
+//  list of tasks should include the task name and task description.
+// SELECT p.name, p.description, t.description
+// FROM tasks as t
+// JOIN projects as p
+// on t.project_id = p.id;
+  function find(){
+      return db("tasks")
+  }
 
 
 module.exports = {
