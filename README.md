@@ -163,12 +163,12 @@ _Good luck and have fun!_
 
 - npm install
 - create npm package > npm init -y
+- package.json > add "server": "nodemon index.js", "start": "node index"
 - npm install express --save
 - npm install knex sqlite3
 - NPX knex init > creates knexfile.js
   - check/update migration & seed directory path
 - npm install --save-dev nodemon
-- package.json > add "server": "nodemon index.js", "start": "node index"
 - npm install dotenv
 
 ## FILE STRUCTURE 1
