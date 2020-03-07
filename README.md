@@ -55,7 +55,7 @@ Demonstrate your understanding of this week's concepts by answering the followin
 - [ ] What do we need in order to have a _many to many_ relationship between two tables.
 
   > A intermediary table which assists with identifying links between two other table entries.
-  
+
 ## Minimum Viable Product
 
 Take the steps necessary to complete the project from scratch. Start by initializing your project with a `package.json` and go from there.
@@ -156,3 +156,58 @@ A `context` can be applied to more than one `task`. An task can be tied to more 
 When retrieving an `task` by _id_, add a property that lists all the `contexts` related to that task.
 
 _Good luck and have fun!_
+
+## SETup STEPS
+
+## INSTALLS
+
+- npm install
+- create npm package > npm init -y
+- npm install express --save
+- npm install knex sqlite3
+- NPX knex init > creates knexfile.js
+  - check/update migration & seed directory path
+- npm install --save-dev nodemon
+- package.json > add "server": "nodemon index.js", "start": "node index"
+- npm install dotenv
+
+## FILE STRUCTURE 1
+
+- create folder > data
+- data folder > create config.js file
+- create file > server.js
+- create folder > welcome >> create file welcome-router.js
+
+## CHECK SERVER
+
+- npm run server >> \*\* package.json scripts index to server may need updated for SERVER to run
+
+## FILE STRUCTURE 2
+
+- create folder/file > project/project-router.js && project.model.js
+- create folder/file > resource/resource-router.js && resource.model.js
+- create folder/file > task/task-router.js && task.model.js
+
+## DESIGN DATA MODEL via white board
+
+- table > Project >> id, name, description\*
+- table > Tasks >> id, description, notes\*
+- table > Resources >> id, name, description\*
+- table > Project_Tasks >> project_id, tasks_id
+
+## MIGRATIONS
+
+- npx knex migrate:make initial
+- npx knex migrate:latest
+- npx knex migrate:rollback
+
+- createTable("project")
+
+## SEEDS?
+
+- npx knex seeds:make initial
+
+  - 00_cleanup.js, etc
+
+- npx knex seeds:run
+- npx knex seeds:rollback?
