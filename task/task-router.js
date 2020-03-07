@@ -7,7 +7,8 @@ const router = express.Router({
 })
 
 router.get("/", (req, res) => {
-    Task.find()
+
+  Task.find()
     .then(task => {
       res.json(task);
     })

@@ -11,7 +11,7 @@ exports.up = async function(knex) {
         table.increments("id")
         table.text("description").notNull()
         table.text("notes")
-        table.integer("project_id")
+        table.integer("projects_id")
           .references("id")
           .inTable("projects")
       table.boolean("completed").defaultTo(false)
