@@ -1,4 +1,11 @@
 const db = require('../data/config')
 
 
-module.exports = {}
+// retrieve a list of resources
+function find() {
+    return db("resources");
+  }
+
+module.exports = {
+    find,
+}
