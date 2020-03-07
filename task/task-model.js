@@ -24,11 +24,11 @@ function findById(id) {
 // FROM tasks as t
 // JOIN projects as p
 // on t.project_id = p.id;
-  function find(id){
+  function find(){
     return db("tasks")
-    .select("p.name", "p.description", "t.description")
-    .join("projects", "t.project_id", "=", "p.id")
-    .where("tasks.project_id", id);
+    .select("projects.name", "projects.description", "tasks.description")
+    .join("projects", "tasks.project_id", "=", "projects.id")
+    // .where("tasks.project_id", id);
   }
 
 
