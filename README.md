@@ -40,12 +40,22 @@ Demonstrate your understanding of this week's concepts by answering the followin
 
 - [ ] Explain the difference between `Relational Databases` and `SQL`.
 
+  > Relational Databases (RD) are the oldest and most common type of database in use today. It serves as the overarching structure of tables with rows & columns.
+
+  > SQL is one language designed to communicate with the RD and also the most common.
+
 - [ ] Why do tables need a `primary key`?
+
+  > They are required to identify each row so that functions & queries can reference the data reliably via a unique property specific to each entry in a table.
 
 - [ ] What is the name given to a table column that references the primary key on another table.
 
+  > A foreign key
+
 - [ ] What do we need in order to have a _many to many_ relationship between two tables.
 
+  > A intermediary table which assists with identifying links between two other table entries.
+  
 ## Minimum Viable Product
 
 Take the steps necessary to complete the project from scratch. Start by initializing your project with a `package.json` and go from there.
