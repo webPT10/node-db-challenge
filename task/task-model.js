@@ -3,6 +3,8 @@ const db = require('../data/config')
 // find by id
 function findById(id) {
     return db("tasks")
+      // .join("projects", "tasks.projects_id", "=", "projects.id")
+      // .select("tasks.*", "projects.projects_name", "projects.description")
       .where({ "tasks.id": id })
       .first();
   }
@@ -26,9 +28,10 @@ function findById(id) {
 // on t.project_id = p.id;
   function find(){
     return db("tasks")
-    .select("projects.name", "projects.description", "tasks.*")
-    .join("projects", "tasks.projects_id", "=", "projects.id")
-    // .where("tasks.project_id", id);
+    .select("projects.name as project_name", "projects.description as project_description","tasks.id as task_id", "tasks.description as task_description", "tasks.notes as task_notes")
+    
+    .join("projects","tasks.projects_id", "=", "projects.id"  )
+    // .where({"tasks.project_id": id})
   }
 
 
@@ -37,3 +40,8 @@ module.exports = {
     add,
     find
 }
+
+// select projects.name, projects.description, tasks.description
+// from tasks
+// join projects
+// on tasks.projects_id = projects.id

@@ -27,7 +27,6 @@ exports.up = async function(knex) {
         table.integer("projects_id")
             .references("id")
             .inTable("projects")
-            //
         table.integer("resources_id")
             .references("id")
             .inTable("resources")
