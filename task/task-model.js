@@ -29,7 +29,6 @@ function findById(id) {
   function find(){
     return db("tasks")
     .select("projects.name as project_name", "projects.description as project_description","tasks.id as task_id", "tasks.description as task_description", "tasks.notes as task_notes")
-    
     .join("projects","tasks.projects_id", "=", "projects.id"  )
     // .where({"tasks.project_id": id})
   }
@@ -40,8 +39,3 @@ module.exports = {
     add,
     find
 }
-
-// select projects.name, projects.description, tasks.description
-// from tasks
-// join projects
-// on tasks.projects_id = projects.id

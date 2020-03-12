@@ -23,8 +23,16 @@ function find() {
     return db("resources");
   }
 
+function getProjectsByResource(id){
+  return db("resources")
+    .join("projects_resources", "resources.id", "=", "projects_resources.resources_id")
+    .select("resources.*")
+    .where("resource.id", id)
+}
+
 module.exports = {
     findById,
     add, 
-    find
+    find,
+    getProjectsByResource
 }

@@ -18,6 +18,24 @@ router.get("/", (req, res) => {
     });
 });
 
+router.get("/:id", (req, res) => {
+  const {id} = req.params
+  
+  Resource.getProjectsByResource(id)
+    .then(resource => {
+      res.json(resource)
+    })
+    .catch(error => {
+      res
+        .status(500)
+        .json({ message: "Failed to return Resources. Good-bye." });
+    });
+
+  // projects_that_use: Resource.getProjectsByResource(id),
+        
+
+})
+
 router.post("/", (req, res) => {
   const resourceData = req.body;
 

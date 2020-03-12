@@ -9,3 +9,5 @@ exports.seed = async function(knex) {
       { projects_id: 2, resources_id: 5 }
   ])
 };
+
+
