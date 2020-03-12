@@ -40,11 +40,21 @@ Demonstrate your understanding of this week's concepts by answering the followin
 
 - [ ] Explain the difference between `Relational Databases` and `SQL`.
 
+  > Relational Databases (RD) are the oldest and most common type of database in use today. It serves as the overarching structure of tables with rows & columns.
+
+  > SQL is one language designed to communicate with the RD and also the most common.
+
 - [ ] Why do tables need a `primary key`?
+
+  > They are required to identify each row so that functions & queries can reference the data reliably via a unique property specific to each entry in a table.
 
 - [ ] What is the name given to a table column that references the primary key on another table.
 
+  > A foreign key
+
 - [ ] What do we need in order to have a _many to many_ relationship between two tables.
+
+  > A intermediary table which assists with identifying links between two other table entries.
 
 ## Minimum Viable Product
 
@@ -146,3 +156,61 @@ A `context` can be applied to more than one `task`. An task can be tied to more 
 When retrieving an `task` by _id_, add a property that lists all the `contexts` related to that task.
 
 _Good luck and have fun!_
+
+## SETup STEPS
+
+## INSTALLS
+
+- npm install
+- create npm package > npm init -y
+- package.json > add "server": "nodemon index.js", "start": "node index"
+- npm install express --save
+- npm install knex sqlite3
+- NPX knex init > creates knexfile.js
+  - check/update migration & seed directory path
+- npm install --save-dev nodemon
+- npm install dotenv
+
+## FILE STRUCTURE 1
+
+- create folder > data
+- data folder > create config.js file
+- create file > server.js
+- create folder > welcome >> create file welcome-router.js
+
+## CHECK SERVER
+
+- npm run server >> \*\* package.json scripts index to server may need updated for SERVER to run
+
+## FILE STRUCTURE 2
+
+- create folder/file > project/project-router.js && project.model.js
+- create folder/file > resource/resource-router.js && resource.model.js
+- create folder/file > task/task-router.js && task.model.js
+
+## DESIGN DATA MODEL via white board
+
+- table > Project >> id, name, description\*
+- table > Tasks >> id, description, notes\*
+- table > Resources >> id, name, description\*
+- table > Project_Tasks >> project_id, tasks_id
+
+## MIGRATIONS
+
+- npx knex migrate:make initial
+- npx knex migrate:latest
+- npx knex migrate:rollback
+
+- createTable("project")
+
+## SEEDS
+
+- npx knex seed:make ___
+
+  - 00_cleanup.js, 01_projects.js, 02_resources.js, 03_tasks.js, 04_projects_resources.js
+
+- npx knex seed:run
+- npx knex seed:rollback?
+
+## Project > router & model
+- 
