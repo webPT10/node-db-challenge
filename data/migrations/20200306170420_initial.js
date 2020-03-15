@@ -21,7 +21,7 @@ exports.up = async function(knex) {
         table.increments("id")
         table.text("name").notNull()
         table.text("description")
-        table.integer("project_id")
+        // table.text("cost").notNull()
     })
 
     await knex.schema.createTable("projects_resources", (table) => {
@@ -31,6 +31,8 @@ exports.up = async function(knex) {
         table.integer("resources_id")
             .references("id")
             .inTable("resources")
+        table.integer("quantity").defaultTo(1)
+        // table.integer("cost")
         //since this table doesn't need an ID column, we can make
         // the primary key a combination of the two columns
         table.primary(["projects_id", "resources_id"])

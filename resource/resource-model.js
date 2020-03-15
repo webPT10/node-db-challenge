@@ -10,13 +10,27 @@ function findById(id) {
   // add resources
   // INSERT INTO resources(name)
   // VALUES ("hammer");
-  function add(resource) {
-    return db("resources")
-      .insert(resource)
-      .then(ids => {
-        return findById(ids);
-      });
+async function add(newResource, projectId) {
+    const [ resourceID ] = await db("resources")
+      .insert(newResource) // returns array of 
+
+      await db("projects_resources")
+        .insert({
+          projects_id: projectId,
+          resources_id: resourceID
+        })
+
+      // .then(ids => {
+      //   return findById(ids);
+      // });
   }
+  // function addResourceToJoinTable(resource) {
+  //     db("projects_resources")
+  //       .insert(resource)
+  //     // .then(ids => {
+  //     //   return findById(ids);
+  //     // });
+  // }
 
 // retrieve a list of resources
 function find() {
@@ -34,5 +48,6 @@ module.exports = {
     findById,
     add, 
     find,
-    getProjectsByResource
+    getProjectsByResource,
+    // addResourceToJoinTable
 }
