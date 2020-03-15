@@ -214,3 +214,33 @@ _Good luck and have fun!_
 
 ## Project > router & model
 - 
+
+## UPDATING the join table
+>> when you add a Resource it needs to associate it with a Project
+
+> model: 
+
+async function add(newResource, projectId) {
+    const [ resourceID ] = await db("resources")
+      .insert(newResource) // returns array of 
+
+      await db("projects_resources")
+        .insert({
+          projects_id: projectId,
+          resources_id: resourceID
+        })
+  }
+
+> router: 
+router.post("/", async (req, res, next) => {
+  const projectId = req.body.project_id
+  const newResource = {
+    name: req.body.name,
+    description: req.body.description
+  }
+  try {
+    await Resource.add(newResource, projectId)
+    res.status(201).json()
+  } catch(error){
+    next(error)
+  }

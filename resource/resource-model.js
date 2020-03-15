@@ -19,10 +19,6 @@ async function add(newResource, projectId) {
           projects_id: projectId,
           resources_id: resourceID
         })
-
-      // .then(ids => {
-      //   return findById(ids);
-      // });
   }
   // function addResourceToJoinTable(resource) {
   //     db("projects_resources")
